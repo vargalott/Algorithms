@@ -1,0 +1,130 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				},
+				{
+					"build" : "extern/Catch2",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "extern/Catch2"
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "algorithms",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "Catch2",
+					"parentIndex" : 0
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "algorithms-misc::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-algorithms-misc-Debug-e68e8e529a6f47af750b.json",
+					"name" : "algorithms-misc",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "algorithms-misc-tests::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-algorithms-misc-tests-Debug-b9219a0d4af00cb6cf80.json",
+					"name" : "algorithms-misc-tests",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "algorithms-patterns::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-algorithms-patterns-Debug-fd171170fc1d13a04bda.json",
+					"name" : "algorithms-patterns",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "algorithms-patterns-tests::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-algorithms-patterns-tests-Debug-8820c0522436724154bb.json",
+					"name" : "algorithms-patterns-tests",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "run-algorithms-misc-tests::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-run-algorithms-misc-tests-Debug-8098c35170282579ddd1.json",
+					"name" : "run-algorithms-misc-tests",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "run-algorithms-patterns-tests::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-run-algorithms-patterns-tests-Debug-f6857fcf91aaadef3949.json",
+					"name" : "run-algorithms-patterns-tests",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/Projects/Algorithms/build",
+		"source" : "D:/Projects/Algorithms"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 2
+	}
+}

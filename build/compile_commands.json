@@ -1,0 +1,137 @@
+[
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -I..\\include -I..\\extern\\Catch2\\single_include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns-tests.dir\\tests\\tests.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\tests\\tests.cpp",
+  "file": "D:/Projects/Algorithms/tests/tests.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -I..\\include -I..\\extern\\Catch2\\single_include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns-tests.dir\\tests\\patterns\\tests-creational.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\tests\\patterns\\tests-creational.cpp",
+  "file": "D:/Projects/Algorithms/tests/patterns/tests-creational.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -I..\\include -I..\\extern\\Catch2\\single_include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns-tests.dir\\tests\\patterns\\tests-structural.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\tests\\patterns\\tests-structural.cpp",
+  "file": "D:/Projects/Algorithms/tests/patterns/tests-structural.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -I..\\include -I..\\extern\\Catch2\\single_include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns-tests.dir\\tests\\patterns\\tests-behavioral.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\tests\\patterns\\tests-behavioral.cpp",
+  "file": "D:/Projects/Algorithms/tests/patterns/tests-behavioral.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -Dalgorithms_patterns_EXPORTS -I..\\include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns.dir\\src\\patterns\\creational\\abstract-factory.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\src\\patterns\\creational\\abstract-factory.cpp",
+  "file": "D:/Projects/Algorithms/src/patterns/creational/abstract-factory.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -Dalgorithms_patterns_EXPORTS -I..\\include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns.dir\\src\\patterns\\creational\\builder.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\src\\patterns\\creational\\builder.cpp",
+  "file": "D:/Projects/Algorithms/src/patterns/creational/builder.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -Dalgorithms_patterns_EXPORTS -I..\\include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns.dir\\src\\patterns\\creational\\factory-method.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\src\\patterns\\creational\\factory-method.cpp",
+  "file": "D:/Projects/Algorithms/src/patterns/creational/factory-method.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -Dalgorithms_patterns_EXPORTS -I..\\include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns.dir\\src\\patterns\\creational\\prototype.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\src\\patterns\\creational\\prototype.cpp",
+  "file": "D:/Projects/Algorithms/src/patterns/creational/prototype.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -Dalgorithms_patterns_EXPORTS -I..\\include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns.dir\\src\\patterns\\structural\\adapter.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\src\\patterns\\structural\\adapter.cpp",
+  "file": "D:/Projects/Algorithms/src/patterns/structural/adapter.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -Dalgorithms_patterns_EXPORTS -I..\\include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns.dir\\src\\patterns\\structural\\bridge.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\src\\patterns\\structural\\bridge.cpp",
+  "file": "D:/Projects/Algorithms/src/patterns/structural/bridge.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -Dalgorithms_patterns_EXPORTS -I..\\include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns.dir\\src\\patterns\\structural\\composite.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\src\\patterns\\structural\\composite.cpp",
+  "file": "D:/Projects/Algorithms/src/patterns/structural/composite.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -Dalgorithms_patterns_EXPORTS -I..\\include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns.dir\\src\\patterns\\structural\\decorator.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\src\\patterns\\structural\\decorator.cpp",
+  "file": "D:/Projects/Algorithms/src/patterns/structural/decorator.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -Dalgorithms_patterns_EXPORTS -I..\\include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns.dir\\src\\patterns\\structural\\facade.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\src\\patterns\\structural\\facade.cpp",
+  "file": "D:/Projects/Algorithms/src/patterns/structural/facade.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -Dalgorithms_patterns_EXPORTS -I..\\include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns.dir\\src\\patterns\\structural\\flyweight.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\src\\patterns\\structural\\flyweight.cpp",
+  "file": "D:/Projects/Algorithms/src/patterns/structural/flyweight.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -Dalgorithms_patterns_EXPORTS -I..\\include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns.dir\\src\\patterns\\structural\\proxy.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\src\\patterns\\structural\\proxy.cpp",
+  "file": "D:/Projects/Algorithms/src/patterns/structural/proxy.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -Dalgorithms_patterns_EXPORTS -I..\\include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns.dir\\src\\patterns\\behavioral\\command.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\src\\patterns\\behavioral\\command.cpp",
+  "file": "D:/Projects/Algorithms/src/patterns/behavioral/command.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -Dalgorithms_patterns_EXPORTS -I..\\include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns.dir\\src\\patterns\\behavioral\\cor.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\src\\patterns\\behavioral\\cor.cpp",
+  "file": "D:/Projects/Algorithms/src/patterns/behavioral/cor.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -Dalgorithms_patterns_EXPORTS -I..\\include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns.dir\\src\\patterns\\behavioral\\mediator.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\src\\patterns\\behavioral\\mediator.cpp",
+  "file": "D:/Projects/Algorithms/src/patterns/behavioral/mediator.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -Dalgorithms_patterns_EXPORTS -I..\\include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns.dir\\src\\patterns\\behavioral\\memento.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\src\\patterns\\behavioral\\memento.cpp",
+  "file": "D:/Projects/Algorithms/src/patterns/behavioral/memento.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -Dalgorithms_patterns_EXPORTS -I..\\include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns.dir\\src\\patterns\\behavioral\\observer.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\src\\patterns\\behavioral\\observer.cpp",
+  "file": "D:/Projects/Algorithms/src/patterns/behavioral/observer.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -Dalgorithms_patterns_EXPORTS -I..\\include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns.dir\\src\\patterns\\behavioral\\state.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\src\\patterns\\behavioral\\state.cpp",
+  "file": "D:/Projects/Algorithms/src/patterns/behavioral/state.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -Dalgorithms_patterns_EXPORTS -I..\\include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns.dir\\src\\patterns\\behavioral\\strategy.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\src\\patterns\\behavioral\\strategy.cpp",
+  "file": "D:/Projects/Algorithms/src/patterns/behavioral/strategy.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -Dalgorithms_patterns_EXPORTS -I..\\include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns.dir\\src\\patterns\\behavioral\\template-method.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\src\\patterns\\behavioral\\template-method.cpp",
+  "file": "D:/Projects/Algorithms/src/patterns/behavioral/template-method.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -Dalgorithms_patterns_EXPORTS -I..\\include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-patterns.dir\\src\\patterns\\behavioral\\visitor.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\src\\patterns\\behavioral\\visitor.cpp",
+  "file": "D:/Projects/Algorithms/src/patterns/behavioral/visitor.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -I..\\include -I..\\extern\\Catch2\\single_include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-misc-tests.dir\\tests\\tests.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\tests\\tests.cpp",
+  "file": "D:/Projects/Algorithms/tests/tests.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -I..\\include -I..\\extern\\Catch2\\single_include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-misc-tests.dir\\tests\\misc\\tests-misc.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\tests\\misc\\tests-misc.cpp",
+  "file": "D:/Projects/Algorithms/tests/misc/tests-misc.cpp"
+},
+{
+  "directory": "D:/Projects/Algorithms/build",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2017\\BUILDT~1\\VC\\Tools\\MSVC\\1416~1.270\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -Dalgorithms_misc_EXPORTS -I..\\include /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17 /FoCMakeFiles\\algorithms-misc.dir\\src\\misc\\numeral-system-converter.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\Projects\\Algorithms\\src\\misc\\numeral-system-converter.cpp",
+  "file": "D:/Projects/Algorithms/src/misc/numeral-system-converter.cpp"
+}
+]

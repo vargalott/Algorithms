@@ -1,0 +1,10 @@
+D:/Projects/Algorithms/build/CMakeFiles/run-algorithms-patterns-tests.dir
+D:/Projects/Algorithms/build/CMakeFiles/algorithms-patterns-tests.dir
+D:/Projects/Algorithms/build/CMakeFiles/algorithms-patterns.dir
+D:/Projects/Algorithms/build/CMakeFiles/run-algorithms-misc-tests.dir
+D:/Projects/Algorithms/build/CMakeFiles/algorithms-misc-tests.dir
+D:/Projects/Algorithms/build/CMakeFiles/algorithms-misc.dir
+D:/Projects/Algorithms/build/CMakeFiles/edit_cache.dir
+D:/Projects/Algorithms/build/CMakeFiles/rebuild_cache.dir
+D:/Projects/Algorithms/build/extern/Catch2/CMakeFiles/edit_cache.dir
+D:/Projects/Algorithms/build/extern/Catch2/CMakeFiles/rebuild_cache.dir
