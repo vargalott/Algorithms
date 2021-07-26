@@ -27,7 +27,7 @@ target_sources(${PROJECT_NAME}_patterns_objs PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/behavioral/cor.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/behavioral/mediator.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/behavioral/memento.cpp
-  # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/behavioral/observer.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/behavioral/observer.cpp
   # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/behavioral/state.cpp
   # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/behavioral/strategy.cpp
   # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/behavioral/template-method.cpp
@@ -67,5 +67,5 @@ target_link_libraries(tests PRIVATE
   $<TARGET_OBJECTS:${PROJECT_NAME}_patterns_objs>
 )
 
-add_custom_target(run-tests COMMAND $<TARGET_FILE:tests>)
+add_custom_target(run-tests COMMAND $<TARGET_FILE:tests> -s)
 add_dependencies(run-tests tests)

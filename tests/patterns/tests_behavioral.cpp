@@ -7,6 +7,7 @@
 #include <algorithms/patterns/behavioral/iterator.hpp>
 #include <algorithms/patterns/behavioral/mediator.hpp>
 #include <algorithms/patterns/behavioral/memento.hpp>
+#include <algorithms/patterns/behavioral/observer.hpp>
 
 using namespace patterns::behavioral;
 
@@ -105,4 +106,15 @@ TEST_CASE("patterns::behavioral::memento", "memento") {
 
   ctk.undo(); // state "2"
   REQUIRE(originator.get_state() == "2");
+}
+
+TEST_CASE("patterns::behavioral::observer", "observer") {
+  observer::publisher pb;
+  observer::concrete_subscriber csb;
+
+  pb.subscribe(&csb);
+
+  pb.do_smth();
+
+  REQUIRE(csb.is_notified_once);
 }
