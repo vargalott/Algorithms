@@ -26,7 +26,7 @@ env:
   BUILD_TYPE: Release
 
 jobs:
-  build:
+  patterns:
     runs-on: ubuntu-latest
 
     steps:
@@ -43,8 +43,8 @@ jobs:
 
     - name: Build
       # Build your program with the given configuration
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target all
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target algorithms_patterns
 
     - name: Test
       # Run tests
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target run-tests
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target tests-patterns

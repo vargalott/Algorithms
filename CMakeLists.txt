@@ -6,10 +6,10 @@ project(algorithms)
 #                               base targets - modules
 # ====================================================================================
 
-add_library(${PROJECT_NAME}_patterns_objs MODULE) # EXCLUDE_FROM_ALL
-target_compile_features(${PROJECT_NAME}_patterns_objs PRIVATE cxx_std_17)
+add_library(${PROJECT_NAME}_patterns MODULE)
+target_compile_features(${PROJECT_NAME}_patterns PRIVATE cxx_std_17)
 
-target_sources(${PROJECT_NAME}_patterns_objs PRIVATE
+target_sources(${PROJECT_NAME}_patterns PRIVATE
   # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/creational/abstract-factory.cpp
   # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/creational/builder.cpp
   # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/creational/factory-method.cpp
@@ -34,7 +34,7 @@ target_sources(${PROJECT_NAME}_patterns_objs PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/behavioral/visitor.cpp
 
 )
-target_include_directories(${PROJECT_NAME}_patterns_objs PRIVATE
+target_include_directories(${PROJECT_NAME}_patterns PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
@@ -49,7 +49,7 @@ add_subdirectory(extern/Catch2)
 add_executable(tests EXCLUDE_FROM_ALL)
 target_compile_features(tests PRIVATE cxx_std_17)
 
-add_dependencies(tests ${PROJECT_NAME}_patterns_objs)
+add_dependencies(tests ${PROJECT_NAME}_patterns)
 
 target_sources(tests PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/tests.cpp
@@ -64,8 +64,8 @@ target_include_directories(tests PRIVATE
 target_link_libraries(tests PRIVATE
   Catch2::Catch2
 
-  $<TARGET_OBJECTS:${PROJECT_NAME}_patterns_objs>
+  $<TARGET_OBJECTS:${PROJECT_NAME}_patterns>
 )
 
-add_custom_target(run-tests COMMAND $<TARGET_FILE:tests> -s)
-add_dependencies(run-tests tests)
+add_custom_target(tests-patterns COMMAND $<TARGET_FILE:tests> "-s patterns::*")
+add_dependencies(tests-patterns tests)
