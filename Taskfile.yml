@@ -30,9 +30,9 @@ tasks:
     cmds:
       - cmake --build ./build --config Release --target all
 
-  test:
+  test_patterns:
     cmds:
-      - cmake --build ./build --target run-tests
+      - cmake --build ./build --target tests-patterns
 
   clean:
     cmds:
