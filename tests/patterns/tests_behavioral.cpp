@@ -2,6 +2,7 @@
 
 #include <algorithms/patterns/behavioral/command.hpp>
 #include <algorithms/patterns/behavioral/cor.hpp>
+#include <algorithms/patterns/behavioral/mediator.hpp>
 
 using namespace patterns::behavioral;
 
@@ -45,4 +46,23 @@ TEST_CASE("patterns::behavioral::cor", "cor") {
   REQUIRE(ret2 == comp2);
   REQUIRE(ret3 == comp3);
   REQUIRE(ret4 == comp4);
+}
+
+TEST_CASE("patterns::behavioral::mediator", "mediator") {
+  auto comp1 = "cc2:react";
+  auto comp2 = "cc3:react";
+  auto comp3 = "cc1:react";
+
+  mediator::concrete_mediator mediator;
+  mediator::concrete_component1 cc1(&mediator);
+  mediator::concrete_component2 cc2(&mediator);
+  mediator::concrete_component3 cc3(&mediator);
+
+  auto ret1 = cc1.operation1();
+  auto ret2 = cc2.operation2();
+  auto ret3 = cc3.operation3();
+
+  REQUIRE(ret1 == comp1);
+  REQUIRE(ret2 == comp2);
+  REQUIRE(ret3 == comp3);
 }
