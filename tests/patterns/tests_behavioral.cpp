@@ -10,6 +10,7 @@
 #include <algorithms/patterns/behavioral/observer.hpp>
 #include <algorithms/patterns/behavioral/state.hpp>
 #include <algorithms/patterns/behavioral/strategy.hpp>
+#include <algorithms/patterns/behavioral/template-method.hpp>
 
 using namespace patterns::behavioral;
 
@@ -149,6 +150,20 @@ TEST_CASE("patterns::behavioral::strategy", "strategy") {
 
   ctx.set(&cc2);
   auto ret2 = ctx.do_smth();
+
+  REQUIRE(ret1 == comp1);
+  REQUIRE(ret2 == comp2);
+}
+
+TEST_CASE("patterns::behavioral::template_method", "template_method") {
+  auto comp1 = "[at]: 1 [at]: 2 [ct1]: 3 [ct1]: 4";
+  auto comp2 = "[at]: 1 [ct2]: 2 [ct2]: 3 [ct2]: 4";
+
+  template_method::abstract_template *tm1 = new template_method::concrete_template1();
+  template_method::abstract_template *tm2 = new template_method::concrete_template2();
+
+  auto ret1 = tm1->template_method();
+  auto ret2 = tm2->template_method();
 
   REQUIRE(ret1 == comp1);
   REQUIRE(ret2 == comp2);
