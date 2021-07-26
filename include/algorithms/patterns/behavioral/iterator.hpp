@@ -65,8 +65,8 @@ inline void concrete_collection<T>::add(T const &element) {
     this->collection[this->collection_size - 1] = element;
   } else {
     T *new_collection = new T[++this->collection_size];
-    for (std::size_t t = 0; t < this->collection_size - 1; ++t) {
-      new_collection[t] = this->collection[t];
+    for (std::size_t i = 0; i < this->collection_size - 1; ++i) {
+      new_collection[i] = this->collection[i];
     }
     delete[] this->collection;
     this->collection = new_collection;
@@ -84,8 +84,8 @@ inline bool concrete_collection<T>::operator==(concrete_collection const &collec
     return false;
   }
 
-  for (std::size t = 0; t < this->collection_size; ++t) {
-    if (this->collection[t] != collection[t]) {
+  for (std::size_t i = 0; i < this->collection_size; ++i) {
+    if (this->collection[i] != collection[i]) {
       return false;
     }
   }
