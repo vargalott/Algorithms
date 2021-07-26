@@ -8,6 +8,7 @@
 #include <algorithms/patterns/behavioral/mediator.hpp>
 #include <algorithms/patterns/behavioral/memento.hpp>
 #include <algorithms/patterns/behavioral/observer.hpp>
+#include <algorithms/patterns/behavioral/state.hpp>
 
 using namespace patterns::behavioral;
 
@@ -117,4 +118,19 @@ TEST_CASE("patterns::behavioral::observer", "observer") {
   pb.do_smth();
 
   REQUIRE(csb.is_notified_once);
+}
+
+TEST_CASE("patterns::behavioral::state", "state") {
+  // concrete_state1 => concrete_state2 => concrete_state1 => ...
+  auto comp1 = "[state1]";
+  auto comp2 = "[state2]";
+
+  state::istate *state = new state::concrete_state1();
+  state::context context(state);
+
+  auto ret1 = context.some_operation();
+  auto ret2 = context.some_operation();
+
+  REQUIRE(ret1 == comp1);
+  REQUIRE(ret2 == comp2);
 }
