@@ -11,6 +11,7 @@
 #include <algorithms/patterns/behavioral/state.hpp>
 #include <algorithms/patterns/behavioral/strategy.hpp>
 #include <algorithms/patterns/behavioral/template-method.hpp>
+#include <algorithms/patterns/behavioral/visitor.hpp>
 
 using namespace patterns::behavioral;
 
@@ -164,6 +165,21 @@ TEST_CASE("patterns::behavioral::template_method", "template_method") {
 
   auto ret1 = tm1->template_method();
   auto ret2 = tm2->template_method();
+
+  REQUIRE(ret1 == comp1);
+  REQUIRE(ret2 == comp2);
+}
+
+TEST_CASE("patterns::behavioral::visitor", "visitor") {
+  auto comp1 = "[cc1]: feature1";
+  auto comp2 = "[cc2]: feature2";
+
+  visitor::concrete_element1 ce1;
+  visitor::concrete_element2 ce2;
+  visitor::concrete_visitor cv;
+
+  auto ret1 = ce1.accept(&cv);
+  auto ret2 = ce2.accept(&cv);
 
   REQUIRE(ret1 == comp1);
   REQUIRE(ret2 == comp2);
