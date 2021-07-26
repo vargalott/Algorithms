@@ -9,6 +9,7 @@
 #include <algorithms/patterns/behavioral/memento.hpp>
 #include <algorithms/patterns/behavioral/observer.hpp>
 #include <algorithms/patterns/behavioral/state.hpp>
+#include <algorithms/patterns/behavioral/strategy.hpp>
 
 using namespace patterns::behavioral;
 
@@ -130,6 +131,24 @@ TEST_CASE("patterns::behavioral::state", "state") {
 
   auto ret1 = context.some_operation();
   auto ret2 = context.some_operation();
+
+  REQUIRE(ret1 == comp1);
+  REQUIRE(ret2 == comp2);
+}
+
+TEST_CASE("patterns::behavioral::strategy", "strategy") {
+  auto comp1 = "[concrete_strategy1]";
+  auto comp2 = "[concrete_strategy2]";
+
+  strategy::concrete_strategy1 cc1;
+  strategy::concrete_strategy2 cc2;
+  strategy::context ctx;
+
+  ctx.set(&cc1);
+  auto ret1 = ctx.do_smth();
+
+  ctx.set(&cc2);
+  auto ret2 = ctx.do_smth();
 
   REQUIRE(ret1 == comp1);
   REQUIRE(ret2 == comp2);
