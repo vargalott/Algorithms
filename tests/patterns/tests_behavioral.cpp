@@ -1,8 +1,11 @@
 #include <catch2/catch.hpp>
 
+#include <array>
+
 #include <algorithms/patterns/behavioral/command.hpp>
 #include <algorithms/patterns/behavioral/cor.hpp>
 #include <algorithms/patterns/behavioral/mediator.hpp>
+#include <algorithms/patterns/behavioral/iterator.hpp>
 
 using namespace patterns::behavioral;
 
@@ -65,4 +68,23 @@ TEST_CASE("patterns::behavioral::mediator", "mediator") {
   REQUIRE(ret1 == comp1);
   REQUIRE(ret2 == comp2);
   REQUIRE(ret3 == comp3);
+}
+
+TEST_CASE("patterns::behavioral::iterator", "iterator") {
+  std::array<std::size_t, 10> comp = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+  iterator::concrete_collection<std::size_t> collection;
+  auto iterator = collection.create_iterator();
+
+  for (std::size_t t = 0; t < 10; ++t) {
+    collection += t;
+  }
+
+  std::array<std::size_t, 10> ret = {};
+  while (iterator->has_more()) {
+    static std::size_t i = 0;
+    ret[i++] = iterator->get_next();
+  }
+
+  REQUIRE(ret == comp);
 }
