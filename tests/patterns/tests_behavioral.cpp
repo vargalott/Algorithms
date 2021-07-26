@@ -4,8 +4,9 @@
 
 #include <algorithms/patterns/behavioral/command.hpp>
 #include <algorithms/patterns/behavioral/cor.hpp>
-#include <algorithms/patterns/behavioral/mediator.hpp>
 #include <algorithms/patterns/behavioral/iterator.hpp>
+#include <algorithms/patterns/behavioral/mediator.hpp>
+#include <algorithms/patterns/behavioral/memento.hpp>
 
 using namespace patterns::behavioral;
 
@@ -87,4 +88,21 @@ TEST_CASE("patterns::behavioral::iterator", "iterator") {
   }
 
   REQUIRE(ret == comp);
+}
+
+TEST_CASE("patterns::behavioral::memento", "memento") {
+  memento::originator originator;
+  memento::caretaker ctk(&originator);
+
+  ctk.do_smth(); // state "1"
+  REQUIRE(originator.get_state() == "1");
+
+  ctk.do_smth(); // state "2"
+  REQUIRE(originator.get_state() == "2");
+
+  ctk.do_smth(); // state "3"
+  REQUIRE(originator.get_state() == "3");
+
+  ctk.undo(); // state "2"
+  REQUIRE(originator.get_state() == "2");
 }

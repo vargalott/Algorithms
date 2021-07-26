@@ -26,7 +26,7 @@ target_sources(${PROJECT_NAME}_patterns_objs PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/behavioral/command.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/behavioral/cor.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/behavioral/mediator.cpp
-  # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/behavioral/memento.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/behavioral/memento.cpp
   # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/behavioral/observer.cpp
   # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/behavioral/state.cpp
   # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/behavioral/strategy.cpp
