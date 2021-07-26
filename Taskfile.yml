@@ -32,7 +32,7 @@ tasks:
 
   test_patterns:
     cmds:
-      - cmake --build ./build --target tests-patterns
+      - cmake --build ./build --target run-tests-patterns
 
   clean:
     cmds:
