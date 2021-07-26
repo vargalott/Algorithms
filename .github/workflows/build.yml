@@ -43,7 +43,7 @@ jobs:
 
     - name: Build
       # Build your program with the given configuration
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target algorithms_patterns
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target algorithms-patterns
 
     - name: Test
       # Run tests
