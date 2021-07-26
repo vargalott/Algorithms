@@ -1,6 +1,7 @@
 #include <catch2/catch.hpp>
 
 #include <algorithms/patterns/behavioral/command.hpp>
+#include <algorithms/patterns/behavioral/cor.hpp>
 
 using namespace patterns::behavioral;
 
