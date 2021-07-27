@@ -30,7 +30,7 @@ target_sources(${PROJECT_NAME}-patterns PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/creational/factory-method.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/creational/prototype.cpp
 
-  # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/structural/adapter.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/structural/adapter.cpp
   # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/structural/bridge.cpp
   # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/structural/composite.cpp
   # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/structural/decorator.cpp
@@ -90,7 +90,7 @@ target_sources(${PROJECT_NAME}-patterns-tests PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/tests.cpp
 
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/patterns/tests_creational.cpp
-  # ${CMAKE_CURRENT_SOURCE_DIR}/tests/patterns/tests_structural.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/tests/patterns/tests_structural.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/patterns/tests_behavioral.cpp
 )
 
