@@ -5,6 +5,7 @@
 #include <algorithms/patterns/structural/composite.hpp>
 #include <algorithms/patterns/structural/decorator.hpp>
 #include <algorithms/patterns/structural/facade.hpp>
+#include <algorithms/patterns/structural/flyweight.hpp>
 
 using namespace patterns::structural;
 
@@ -92,4 +93,23 @@ TEST_CASE("patterns::structural::facade", "facade") {
   auto ret = facade.do_magic();
 
   REQUIRE(ret == comp);
+}
+
+TEST_CASE("patterns::structural::flyweight", "flyweight") {
+  flyweight::flyweight_factory factory;
+  flyweight::flyweight flyweight(42);
+  std::vector<flyweight::context> contexts;
+
+  for (std::size_t i = 0; i < 100; ++i) {
+    contexts.emplace_back(
+        *new flyweight::context(&factory.get(&flyweight), std::ptrdiff_t(i)));
+  }
+
+  // just random indexes to make sure that
+  // the flyweight instance is still the same one
+
+  REQUIRE(contexts.at(23).get() == contexts.at(42).get());
+  REQUIRE(contexts.at(57).get() == contexts.at(76).get());
+  REQUIRE(contexts.at(14).get() == contexts.at(92).get());
+  REQUIRE(contexts.at(36).get() == contexts.at(58).get());
 }
