@@ -3,6 +3,7 @@
 #include <algorithms/patterns/creational/abstract-factory.hpp>
 #include <algorithms/patterns/creational/builder.hpp>
 #include <algorithms/patterns/creational/factory-method.hpp>
+#include <algorithms/patterns/creational/prototype.hpp>
 
 using namespace patterns::creational;
 
@@ -62,4 +63,13 @@ TEST_CASE("patterns::creational::factory_method", "factory_method") {
   REQUIRE(ret1 == comp1);
   REQUIRE(ret2 == comp2);
   REQUIRE(ret3 == comp3);
+}
+
+TEST_CASE("patterns::creational::prototype", "prototype") {
+  prototype::concrete_prototype existing;
+
+  prototype::concrete_prototype *cloned =
+      dynamic_cast<prototype::concrete_prototype *>(existing.clone());
+
+  REQUIRE(existing.get_data() != cloned->get_data());
 }
