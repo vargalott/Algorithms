@@ -31,7 +31,7 @@ target_sources(${PROJECT_NAME}-patterns PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/creational/prototype.cpp
 
   ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/structural/adapter.cpp
-  # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/structural/bridge.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/structural/bridge.cpp
   # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/structural/composite.cpp
   # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/structural/decorator.cpp
   # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/structural/facade.cpp
