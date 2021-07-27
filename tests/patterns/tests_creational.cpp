@@ -2,6 +2,7 @@
 
 #include <algorithms/patterns/creational/abstract-factory.hpp>
 #include <algorithms/patterns/creational/builder.hpp>
+#include <algorithms/patterns/creational/factory-method.hpp>
 
 using namespace patterns::creational;
 
@@ -47,4 +48,18 @@ TEST_CASE("patterns::creational::builder", "builder") {
 
   REQUIRE(ret1 == comp1);
   REQUIRE(ret2 == comp2);
+}
+
+TEST_CASE("patterns::creational::factory_method", "factory_method") {
+  auto comp1 = "[default_product]";
+  auto comp2 = "[concrete_product1]";
+  auto comp3 = "[concrete_product2]";
+
+  auto ret1 = factory_method::creator().create_product()->do_smth();
+  auto ret2 = factory_method::concrete_creator1().create_product()->do_smth();
+  auto ret3 = factory_method::concrete_creator2().create_product()->do_smth();
+
+  REQUIRE(ret1 == comp1);
+  REQUIRE(ret2 == comp2);
+  REQUIRE(ret3 == comp3);
 }
