@@ -36,9 +36,9 @@ jobs:
       uses: tj-actions/changed-files@v9
       with:
         files: |
-          ${{github.workspace}}/include/algorithms/patterns
-          ${{github.workspace}}/src/patterns
-          ${{github.workspace}}/tests/patterns
+          include/algorithms/patterns
+          src/patterns
+          tests/patterns
 
     - name: Init submodule(s)
       if: steps.changed-patterns.outputs.any_changed == 'true'
@@ -69,9 +69,9 @@ jobs:
       uses: tj-actions/changed-files@v9
       with:
         files: |
-          ${{github.workspace}}/include/algorithms/misc
-          ${{github.workspace}}/src/misc
-          ${{github.workspace}}/tests/misc
+          include/algorithms/misc
+          src/misc
+          tests/misc
 
     - name: Init submodule(s)
       if: steps.changed-misc.outputs.any_changed == 'true'
