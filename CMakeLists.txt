@@ -98,9 +98,9 @@ endmacro()
 make_tests_for(${PROJECT_NAME}-patterns patterns::*)
 
 target_sources(${PROJECT_NAME}-patterns-tests PRIVATE
-  ${CMAKE_CURRENT_SOURCE_DIR}/tests/patterns/tests_creational.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/tests/patterns/tests_structural.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/tests/patterns/tests_behavioral.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/tests/patterns/tests-creational.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/tests/patterns/tests-structural.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/tests/patterns/tests-behavioral.cpp
 )
 
 # ====================================================================================
@@ -108,5 +108,5 @@ target_sources(${PROJECT_NAME}-patterns-tests PRIVATE
 make_tests_for(${PROJECT_NAME}-misc misc::*)
 
 target_sources(${PROJECT_NAME}-misc-tests PRIVATE
-  ${CMAKE_CURRENT_SOURCE_DIR}/tests/misc/tests_misc.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/tests/misc/tests-misc.cpp
 )
