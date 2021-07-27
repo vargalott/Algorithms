@@ -50,6 +50,14 @@ target_sources(${PROJECT_NAME}-patterns PRIVATE
 
 )
 
+# ====================================================================================
+
+make_module(misc)
+
+target_sources(${PROJECT_NAME}-misc PRIVATE
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/misc/numeral-system-converter.cpp
+)
+
 
 # ====================================================================================
 #                                     tests target
@@ -68,6 +76,9 @@ macro(make_tests_for MODULE RUN_RULE)
 
   add_dependencies(${MODULE}-tests ${MODULE})
 
+  target_sources(${MODULE}-tests PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/tests/tests.cpp
+  )
   target_include_directories(${MODULE}-tests PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
   )
@@ -87,13 +98,15 @@ endmacro()
 make_tests_for(${PROJECT_NAME}-patterns patterns::*)
 
 target_sources(${PROJECT_NAME}-patterns-tests PRIVATE
-  ${CMAKE_CURRENT_SOURCE_DIR}/tests/tests.cpp
-
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/patterns/tests_creational.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/patterns/tests_structural.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/patterns/tests_behavioral.cpp
 )
 
 # ====================================================================================
-#
-# ====================================================================================
+
+make_tests_for(${PROJECT_NAME}-misc misc::*)
+
+target_sources(${PROJECT_NAME}-misc-tests PRIVATE
+  ${CMAKE_CURRENT_SOURCE_DIR}/tests/misc/tests_misc.cpp
+)
