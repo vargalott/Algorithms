@@ -3,6 +3,7 @@
 #include <algorithms/patterns/structural/adapter.hpp>
 #include <algorithms/patterns/structural/bridge.hpp>
 #include <algorithms/patterns/structural/composite.hpp>
+#include <algorithms/patterns/structural/decorator.hpp>
 
 using namespace patterns::structural;
 
@@ -62,4 +63,23 @@ TEST_CASE("patterns::structural::composite", "composite") {
   auto ret = root.execute();
 
   REQUIRE(ret == comp);
+}
+
+TEST_CASE("patterns::structural::decorator", "decorator") {
+  auto comp1 = "[concrete_component]";
+  auto comp2 = "[concrete_component][concrete_decorator1 extra]";
+  auto comp3 = "[concrete_component][concrete_decorator2 extra]";
+
+  decorator::icomponent *cc = new decorator::concrete_component();
+  auto ret1 = cc->execute();
+
+  decorator::icomponent *decorated = new decorator::concrete_decorator1(cc);
+  auto ret2 = decorated->execute();
+
+  decorated = new decorator::concrete_decorator2(cc);
+  auto ret3 = decorated->execute();
+
+  REQUIRE(ret1 == comp1);
+  REQUIRE(ret2 == comp2);
+  REQUIRE(ret3 == comp3);
 }
