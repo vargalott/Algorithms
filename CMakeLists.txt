@@ -6,12 +6,23 @@ project(algorithms)
 #                               base targets - modules
 # ====================================================================================
 
-# ====================================================================================
-#                                  patterns target
+#
+# make module target with a given name using "${PROJECT_NAME}-" prefix;
+# you must explicitly specify the target sources
+#
+macro(make_module MODULE)
+  add_library(${PROJECT_NAME}-${MODULE} MODULE)
+  target_compile_features(${PROJECT_NAME}-${MODULE} PRIVATE cxx_std_17)
+
+  target_include_directories(${PROJECT_NAME}-${MODULE} PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+  )
+
+endmacro()
+
 # ====================================================================================
 
-add_library(${PROJECT_NAME}-patterns MODULE)
-target_compile_features(${PROJECT_NAME}-patterns PRIVATE cxx_std_17)
+make_module(patterns)
 
 target_sources(${PROJECT_NAME}-patterns PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/creational/abstract-factory.cpp
@@ -38,49 +49,50 @@ target_sources(${PROJECT_NAME}-patterns PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/behavioral/visitor.cpp
 
 )
-target_include_directories(${PROJECT_NAME}-patterns PRIVATE
-  ${CMAKE_CURRENT_SOURCE_DIR}/include
-)
-
-# ====================================================================================
-#
-# ====================================================================================
-
 
 
 # ====================================================================================
 #                                     tests target
 # ====================================================================================
 
-# ====================================================================================
-#                                    patterns tests
-# ====================================================================================
-
 add_subdirectory(extern/Catch2)
 
-add_executable(tests-patterns EXCLUDE_FROM_ALL)
-target_compile_features(tests-patterns PRIVATE cxx_std_17)
+#
+# make tests for a given module target and add target to run they;
+# you must explicitly specify the target sources;
+# created target will be named using "run-MODULE-tests" pattern
+#
+macro(make_tests_for MODULE RUN_RULE)
+  add_executable(${MODULE}-tests EXCLUDE_FROM_ALL)
+  target_compile_features(${MODULE}-tests PRIVATE cxx_std_17)
 
-add_dependencies(tests-patterns ${PROJECT_NAME}-patterns)
+  add_dependencies(${MODULE}-tests ${MODULE})
 
-target_sources(tests-patterns PRIVATE
+  target_include_directories(${MODULE}-tests PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+  )
+  target_link_libraries(${MODULE}-tests PRIVATE
+    Catch2::Catch2
+
+    $<TARGET_OBJECTS:${MODULE}>
+  )
+
+  add_custom_target(run-${MODULE}-tests COMMAND $<TARGET_FILE:${MODULE}-tests> -s ${RUN_RULE})
+  add_dependencies(run-${MODULE}-tests ${MODULE}-tests)
+
+endmacro()
+
+# ====================================================================================
+
+make_tests_for(${PROJECT_NAME}-patterns patterns::*)
+
+target_sources(${PROJECT_NAME}-patterns-tests PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/tests.cpp
 
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/patterns/tests_creational.cpp
   # ${CMAKE_CURRENT_SOURCE_DIR}/tests/patterns/tests_structural.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/patterns/tests_behavioral.cpp
 )
-target_include_directories(tests-patterns PRIVATE
-  ${CMAKE_CURRENT_SOURCE_DIR}/include
-)
-target_link_libraries(tests-patterns PRIVATE
-  Catch2::Catch2
-
-  $<TARGET_OBJECTS:${PROJECT_NAME}-patterns>
-)
-
-add_custom_target(run-tests-patterns COMMAND $<TARGET_FILE:tests-patterns> "-s patterns::*")
-add_dependencies(run-tests-patterns tests-patterns)
 
 # ====================================================================================
 #
