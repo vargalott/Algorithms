@@ -32,7 +32,11 @@ tasks:
 
   test_patterns:
     cmds:
-      - cmake --build ./build --target run-algorithms-patterns-tests
+      - cmake --build ./build --config Release --target run-algorithms-patterns-tests
+
+  test_misc:
+    cmds:
+      - cmake --build ./build --config Release --target run-algorithms-misc-tests
 
   clean:
     cmds:
