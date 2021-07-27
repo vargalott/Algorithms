@@ -6,9 +6,9 @@ flyweight::flyweight(std::ptrdiff_t repeating) : repeating(repeating) {}
 std::ptrdiff_t flyweight::get(void) const { return this->repeating; }
 
 context::context(class flyweight *repeating, std::ptrdiff_t unique)
-    : flyweight(repeating), unique(unique) {}
+    : f(repeating), unique(unique) {}
 
-flyweight *const context::get(void) const { return this->flyweight; };
+flyweight *const context::get(void) const { return this->f; };
 
 flyweight &flyweight_factory::get(class flyweight *repeating) {
   std::vector<flyweight *>::iterator pos =

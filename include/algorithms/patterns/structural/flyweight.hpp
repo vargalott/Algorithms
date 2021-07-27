@@ -27,7 +27,7 @@ public:
   flyweight* const get(void) const;
 
 private:
-  flyweight *flyweight;
+  flyweight *f;
   std::ptrdiff_t unique;
 };
 
