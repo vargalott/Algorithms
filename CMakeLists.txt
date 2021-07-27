@@ -26,7 +26,7 @@ make_module(patterns)
 
 target_sources(${PROJECT_NAME}-patterns PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/creational/abstract-factory.cpp
-  # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/creational/builder.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/creational/builder.cpp
   # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/creational/factory-method.cpp
   # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/creational/prototype.cpp
 

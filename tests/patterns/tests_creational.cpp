@@ -1,6 +1,7 @@
 #include <catch2/catch.hpp>
 
 #include <algorithms/patterns/creational/abstract-factory.hpp>
+#include <algorithms/patterns/creational/builder.hpp>
 
 using namespace patterns::creational;
 
@@ -26,4 +27,24 @@ TEST_CASE("patterns::creational::abstract_factory", "abstract_factory") {
   REQUIRE(ret2 == comp2);
   REQUIRE(ret3 == comp3);
   REQUIRE(ret4 == comp4);
+}
+
+TEST_CASE("patterns::creational::builder", "builder") {
+  auto comp1 = "[step1][step2][step3]";
+  auto comp2 = 11100;
+
+  builder::director director;
+  builder::concrete_builder1 builder1;
+  builder::concrete_builder2 builder2;
+
+  director.change_builder(builder1);
+  director.make();
+  auto ret1 = builder1.get_result();
+
+  director.change_builder(builder2);
+  director.make();
+  auto ret2 = builder2.get_result();
+
+  REQUIRE(ret1 == comp1);
+  REQUIRE(ret2 == comp2);
 }
