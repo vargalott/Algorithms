@@ -9,7 +9,6 @@ on:
       - 'include/**'
       - 'src/**'
       - 'tests/**'
-      - 'CMakeLists.txt'
       - '.github/workflows/build.yml'
   pull_request:
     branches: [ main ]
@@ -18,11 +17,9 @@ on:
       - 'include/**'
       - 'src/**'
       - 'tests/**'
-      - 'CMakeLists.txt'
       - '.github/workflows/build.yml'
 
 env:
-  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: Release
 
 jobs:
@@ -31,20 +28,63 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 2
+
+    - name: Get changed files (::patterns/)
+      id: changed-patterns
+      uses: tj-actions/changed-files@v9
+      with:
+        files: |
+          ${{github.workspace}}/include/algorithms/patterns
+          ${{github.workspace}}/src/patterns
+          ${{github.workspace}}/tests/patterns
 
     - name: Init submodule(s)
-      # Initialize the repository git submodule(s)
+      if: steps.changed-patterns.outputs.any_changed == 'true'
       run: git submodule init && git submodule update --init --recursive
 
     - name: Configure CMake
-      # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
-      # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
+      if: steps.changed-patterns.outputs.any_changed == 'true'
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
-      # Build your program with the given configuration
+      if: steps.changed-patterns.outputs.any_changed == 'true'
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target algorithms-patterns
 
     - name: Test
-      # Run tests
+      if: steps.changed-patterns.outputs.any_changed == 'true'
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target run-algorithms-patterns-tests
+
+  misc:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 2
+
+    - name: Get changed files (::misc/)
+      id: changed-misc
+      uses: tj-actions/changed-files@v9
+      with:
+        files: |
+          ${{github.workspace}}/include/algorithms/misc
+          ${{github.workspace}}/src/misc
+          ${{github.workspace}}/tests/misc
+
+    - name: Init submodule(s)
+      if: steps.changed-misc.outputs.any_changed == 'true'
+      run: git submodule init && git submodule update --init --recursive
+
+    - name: Configure CMake
+      if: steps.changed-misc.outputs.any_changed == 'true'
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+
+    - name: Build
+      if: steps.changed-misc.outputs.any_changed == 'true'
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target algorithms-misc
+
+    - name: Test
+      if: steps.changed-misc.outputs.any_changed == 'true'
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target run-algorithms-misc-tests
