@@ -4,6 +4,7 @@
 #include <algorithms/patterns/structural/bridge.hpp>
 #include <algorithms/patterns/structural/composite.hpp>
 #include <algorithms/patterns/structural/decorator.hpp>
+#include <algorithms/patterns/structural/facade.hpp>
 
 using namespace patterns::structural;
 
@@ -82,4 +83,13 @@ TEST_CASE("patterns::structural::decorator", "decorator") {
   REQUIRE(ret1 == comp1);
   REQUIRE(ret2 == comp2);
   REQUIRE(ret3 == comp3);
+}
+
+TEST_CASE("patterns::structural::facade", "facade") {
+  auto comp = "[fireball][illusion][shield][haste][explosion][rest]";
+
+  facade::facade facade;
+  auto ret = facade.do_magic();
+
+  REQUIRE(ret == comp);
 }
