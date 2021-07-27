@@ -4,6 +4,7 @@
 #include <algorithms/patterns/creational/builder.hpp>
 #include <algorithms/patterns/creational/factory-method.hpp>
 #include <algorithms/patterns/creational/prototype.hpp>
+#include <algorithms/patterns/creational/singleton.hpp>
 
 using namespace patterns::creational;
 
@@ -72,4 +73,13 @@ TEST_CASE("patterns::creational::prototype", "prototype") {
       dynamic_cast<prototype::concrete_prototype *>(existing.clone());
 
   REQUIRE(existing.get_data() != cloned->get_data());
+}
+
+TEST_CASE("patterns::creational::singleton", "singleton") {
+  auto ps1 = singleton::pure_singleton<std::size_t>::get_instance();
+  auto ps2 = singleton::pure_singleton<std::size_t>::get_instance();
+  *ps1 = 42;
+
+  REQUIRE(ps1 == ps2);
+  REQUIRE(*ps1 == *ps2);
 }
