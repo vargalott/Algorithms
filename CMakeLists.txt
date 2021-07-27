@@ -36,7 +36,7 @@ target_sources(${PROJECT_NAME}-patterns PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/structural/decorator.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/structural/facade.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/structural/flyweight.cpp
-  # ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/structural/proxy.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/structural/proxy.cpp
 
   ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/behavioral/command.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/patterns/behavioral/cor.cpp
@@ -77,7 +77,7 @@ macro(make_tests_for MODULE RUN_RULE)
     $<TARGET_OBJECTS:${MODULE}>
   )
 
-  add_custom_target(run-${MODULE}-tests COMMAND $<TARGET_FILE:${MODULE}-tests> -s ${RUN_RULE})
+  add_custom_target(run-${MODULE}-tests COMMAND $<TARGET_FILE:${MODULE}-tests> ${RUN_RULE})
   add_dependencies(run-${MODULE}-tests ${MODULE}-tests)
 
 endmacro()

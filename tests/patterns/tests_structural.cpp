@@ -6,6 +6,7 @@
 #include <algorithms/patterns/structural/decorator.hpp>
 #include <algorithms/patterns/structural/facade.hpp>
 #include <algorithms/patterns/structural/flyweight.hpp>
+#include <algorithms/patterns/structural/proxy.hpp>
 
 using namespace patterns::structural;
 
@@ -112,4 +113,18 @@ TEST_CASE("patterns::structural::flyweight", "flyweight") {
   REQUIRE(contexts.at(57).get() == contexts.at(76).get());
   REQUIRE(contexts.at(14).get() == contexts.at(92).get());
   REQUIRE(contexts.at(36).get() == contexts.at(58).get());
+}
+
+TEST_CASE("patterns::structural::proxy", "proxy") {
+  auto comp1 = "[service do_smth]";
+  auto comp2 = "[service do_smth][proxy do_smth_other]";
+
+  proxy::iservice* service = new proxy::service();
+
+	auto ret1 = service->do_smth();
+	service = new proxy::proxy();
+	auto ret2 = service->do_smth();
+
+  REQUIRE(ret1 == comp1);
+  REQUIRE(ret2 == comp2);
 }
