@@ -2,6 +2,7 @@
 
 #include <algorithms/patterns/structural/adapter.hpp>
 #include <algorithms/patterns/structural/bridge.hpp>
+#include <algorithms/patterns/structural/composite.hpp>
 
 using namespace patterns::structural;
 
@@ -41,4 +42,24 @@ TEST_CASE("patterns::structural::bridge", "bridge") {
   REQUIRE(ret4 == comp4);
   REQUIRE(ret5 == comp5);
   REQUIRE(ret6 == comp6);
+}
+
+TEST_CASE("patterns::structural::composite", "composite") {
+  auto comp = "[leaf][leaf][leaf][leaf][leaf]"; // 5 times
+
+  composite::composite root;
+  root.add(new composite::leaf()); // 1
+  root.add(new composite::leaf()); // 2
+
+  composite::composite parent1, parent2;
+  parent1.add(new composite::leaf()); // 3
+  parent1.add(new composite::leaf()); // 4
+  parent2.add(new composite::leaf()); // 5
+
+  root.add(&parent1);
+  root.add(&parent2);
+
+  auto ret = root.execute();
+
+  REQUIRE(ret == comp);
 }
