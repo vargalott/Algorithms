@@ -1,6 +1,7 @@
 #include <catch2/catch.hpp>
 
 #include <algorithms/misc/numeral-system-converter.hpp>
+#include <algorithms/misc/sorting.hpp>
 #include <algorithms/misc/templates.hpp>
 
 using namespace algorithms::misc;
@@ -47,6 +48,42 @@ TEST_CASE("misc::templates::call_foo_or_bar", "call_foo_or_bar") {
 TEST_CASE("misc::templates::factorial", "factorial") {
   auto comp = 3628800;
   auto ret = templates::factorial<10>::result;
+
+  REQUIRE(ret == comp);
+}
+
+TEST_CASE("misc::sorting::bubble_sort", "bubble_sort") {
+  std::vector<int> comp = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+  std::vector<int> ret = {7, 4, 1, 8, 5, 2, 10, 9, 6, 3};
+  sorting::bubble_sort(ret);
+
+  REQUIRE(ret == comp);
+}
+
+TEST_CASE("misc::sorting::coctail_sort", "coctail_sort") {
+  std::vector<int> comp = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+  std::vector<int> ret = {7, 4, 1, 8, 5, 2, 10, 9, 6, 3};
+  sorting::coctail_sort(ret);
+
+  REQUIRE(ret == comp);
+}
+
+TEST_CASE("misc::sorting::even_odd_sort", "even_odd_sort") {
+  std::vector<int> comp = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+  std::vector<int> ret = {7, 4, 1, 8, 5, 2, 10, 9, 6, 3};
+  sorting::even_odd_sort(ret);
+
+  REQUIRE(ret == comp);
+}
+
+TEST_CASE("misc::sorting::combo_sort", "combo_sort") {
+  std::vector<int> comp = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+  std::vector<int> ret = {7, 4, 1, 8, 5, 2, 10, 9, 6, 3};
+  sorting::combo_sort(ret);
 
   REQUIRE(ret == comp);
 }
