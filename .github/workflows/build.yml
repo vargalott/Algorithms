@@ -41,19 +41,27 @@ jobs:
           tests/patterns
 
     - name: Init submodule(s)
-      if: steps.changed-patterns.outputs.any_changed == 'true'
+      if: |
+        steps.changed-patterns.outputs.any_changed == 'true' ||
+        github.event_name == 'workflow_dispatch'
       run: git submodule init && git submodule update --init --recursive
 
     - name: Configure CMake
-      if: steps.changed-patterns.outputs.any_changed == 'true'
+      if: |
+        steps.changed-patterns.outputs.any_changed == 'true' ||
+        github.event_name == 'workflow_dispatch'
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
-      if: steps.changed-patterns.outputs.any_changed == 'true'
+      if: |
+        steps.changed-patterns.outputs.any_changed == 'true' ||
+        github.event_name == 'workflow_dispatch'
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target algorithms-patterns
 
     - name: Test
-      if: steps.changed-patterns.outputs.any_changed == 'true'
+      if: |
+        steps.changed-patterns.outputs.any_changed == 'true' ||
+        github.event_name == 'workflow_dispatch'
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target run-algorithms-patterns-tests
 
   misc:
@@ -74,17 +82,25 @@ jobs:
           tests/misc
 
     - name: Init submodule(s)
-      if: steps.changed-misc.outputs.any_changed == 'true'
+      if: |
+        steps.changed-misc.outputs.any_changed == 'true' ||
+        github.event_name == 'workflow_dispatch'
       run: git submodule init && git submodule update --init --recursive
 
     - name: Configure CMake
-      if: steps.changed-misc.outputs.any_changed == 'true'
+      if: |
+        steps.changed-misc.outputs.any_changed == 'true' ||
+        github.event_name == 'workflow_dispatch'
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
-      if: steps.changed-misc.outputs.any_changed == 'true'
+      if: |
+        steps.changed-misc.outputs.any_changed == 'true' ||
+        github.event_name == 'workflow_dispatch'
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target algorithms-misc
 
     - name: Test
-      if: steps.changed-misc.outputs.any_changed == 'true'
+      if: |
+        steps.changed-misc.outputs.any_changed == 'true' ||
+        github.event_name == 'workflow_dispatch'
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target run-algorithms-misc-tests
