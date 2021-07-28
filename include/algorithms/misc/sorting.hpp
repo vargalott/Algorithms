@@ -76,6 +76,73 @@ template <typename T> void combo_sort(std::vector<T> &arr) {
   }
 }
 
+template <typename T> void insert_sort(std::vector<T> &arr) {
+  for (std::size_t i = 1; i < arr.size(); ++i) {
+    for (std::size_t j = i; j > 0 && arr.at(j - 1) > arr.at(j); --j) {
+      std::swap(arr.at(j - 1), arr.at(j));
+    }
+  }
+}
+
+template <typename T> void selection_sort(std::vector<T> &arr) {
+  for (std::size_t i = 0; i < arr.size() - 1; ++i) {
+    std::size_t min = i;
+    for (std::size_t j = i + 1; j < arr.size(); ++j) {
+      if (arr.at(j) < arr.at(min)) {
+        min = j;
+      }
+    }
+    if (min != i) {
+      std::swap(arr.at(i), arr.at(min));
+      min = i;
+    }
+  }
+}
+
+template <typename T> void merge_sort(std::vector<T> &arr) {
+  if (arr.size() <= 1) {
+    return;
+  }
+
+  std::size_t mid = arr.size() / 2;
+  std::vector<T> left, right;
+
+  for (std::size_t i = 0; i < mid; ++i) {
+    left.push_back(arr.at(i));
+  }
+  for (std::size_t i = mid; i < arr.size(); ++i) {
+    right.push_back(arr.at(i));
+  }
+
+  merge_sort(left);
+  merge_sort(right);
+
+  arr.clear();
+  auto merge = [](std::vector<T> &left,
+                  std::vector<T> &right) -> std::vector<T> & {
+    std::vector<T> *result = new std::vector<T>(left.size() + right.size());
+    std::size_t l = 0, r = 0;
+
+    for (std::size_t i = 0; i < result->size(); ++i) {
+      if (l == left.size()) {
+        result->at(i) = right.at(r++);
+      } else if (r == right.size()) {
+        result->at(i) = left.at(l++);
+      } else {
+        if (left.at(l) < right.at(r)) {
+          result->at(i) = left.at(l++);
+        } else {
+          result->at(i) = right.at(r++);
+        }
+      }
+    }
+
+    return *result;
+  };
+
+  arr = merge(left, right);
+}
+
 } // namespace algorithms::misc::sorting
 
 #endif // !__SORTING_HPP__

@@ -87,3 +87,30 @@ TEST_CASE("misc::sorting::combo_sort", "combo_sort") {
 
   REQUIRE(ret == comp);
 }
+
+TEST_CASE("misc::sorting::insert_sort", "insert_sort") {
+  std::vector<int> comp = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+  std::vector<int> ret = {7, 4, 1, 8, 5, 2, 10, 9, 6, 3};
+  sorting::insert_sort(ret);
+
+  REQUIRE(ret == comp);
+}
+
+TEST_CASE("misc::sorting::selection_sort", "selection_sort") {
+  std::vector<int> comp = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+  std::vector<int> ret = {7, 4, 1, 8, 5, 2, 10, 9, 6, 3};
+  sorting::selection_sort(ret);
+
+  REQUIRE(ret == comp);
+}
+
+TEST_CASE("misc::sorting::merge_sort", "merge_sort") {
+  std::vector<int> comp = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+  std::vector<int> ret = {7, 4, 1, 8, 5, 2, 10, 9, 6, 3};
+  sorting::merge_sort(ret);
+
+  REQUIRE(ret == comp);
+}
