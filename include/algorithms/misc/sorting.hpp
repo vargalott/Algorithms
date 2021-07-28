@@ -2,6 +2,7 @@
 #ifndef __SORTING_HPP__
 #define __SORTING_HPP__
 
+#include <functional>
 #include <vector>
 
 namespace algorithms::misc::sorting {
@@ -141,6 +142,63 @@ template <typename T> void merge_sort(std::vector<T> &arr) {
   };
 
   arr = merge(left, right);
+}
+
+template <typename T> void shell_sort(std::vector<T> &arr) {
+  std::size_t step = arr.size() / 2;
+
+  while (step > 0) {
+    for (std::size_t i = 0; i < arr.size() - step; ++i) {
+      std::ptrdiff_t j = i;
+
+      while (j >= 0 && arr.at(j) > arr.at(j + step)) {
+        std::swap(arr.at(j), arr.at(j + step));
+        --j;
+      }
+    }
+    step /= 2;
+  }
+}
+
+template <typename T> void quick_sort(std::vector<T> &arr) {
+  std::function<void(std::vector<T> &, std::size_t, std::size_t)>
+      quick_sort_inner = [&quick_sort_inner](std::vector<T> &arr,
+                                             std::ptrdiff_t left,
+                                             std::ptrdiff_t right) -> void {
+    std::ptrdiff_t pivot;
+    std::ptrdiff_t lo = left, hi = right;
+    pivot = arr.at(left);
+
+    while (left < right) {
+      while (arr.at(right) >= pivot && left < right)
+        --right;
+      if (left != right) {
+        arr.at(left) = arr.at(right);
+        ++left;
+      }
+      while ((arr.at(left) <= pivot) && (left < right)) {
+        ++left;
+      }
+      if (left != right) {
+        arr.at(right) = arr.at(left);
+        --right;
+      }
+    }
+
+    arr.at(left) = pivot;
+    pivot = left;
+    left = lo;
+    right = hi;
+
+    if (left < pivot) {
+      quick_sort_inner(arr, left, pivot - 1);
+    }
+    if (right > pivot) {
+      quick_sort_inner(arr, pivot + 1, right);
+    }
+  };
+
+  quick_sort_inner(arr, 0, arr.size() - 1);
 }
 
 } // namespace algorithms::misc::sorting

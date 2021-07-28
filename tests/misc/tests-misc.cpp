@@ -114,3 +114,21 @@ TEST_CASE("misc::sorting::merge_sort", "merge_sort") {
 
   REQUIRE(ret == comp);
 }
+
+TEST_CASE("misc::sorting::shell_sort", "shell_sort") {
+  std::vector<int> comp = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+  std::vector<int> ret = {7, 4, 1, 8, 5, 2, 10, 9, 6, 3};
+  sorting::shell_sort(ret);
+
+  REQUIRE(ret == comp);
+}
+
+TEST_CASE("misc::sorting::quick_sort", "quick_sort") {
+  std::vector<int> comp = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+  std::vector<int> ret = {7, 4, 1, 8, 5, 2, 10, 9, 6, 3};
+  sorting::quick_sort(ret);
+
+  REQUIRE(ret == comp);
+}
