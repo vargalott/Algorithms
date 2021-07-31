@@ -1,5 +1,8 @@
 #include <catch2/catch.hpp>
 
+#include <algorithm>
+#include <random>
+
 #include <algorithms/misc/numeral-system-converter.hpp>
 #include <algorithms/misc/sorting.hpp>
 #include <algorithms/misc/templates.hpp>
@@ -14,7 +17,7 @@ TEST_CASE("misc::numeral_system_converter", "_10_to_x") {
 }
 
 TEST_CASE("misc::templates::pod_count", "pod_count::pod_reflection") {
-  struct POD final {
+  struct pod final {
     double d; // 1
     int i;    // 2
     char c;   // 3
@@ -22,7 +25,7 @@ TEST_CASE("misc::templates::pod_count", "pod_count::pod_reflection") {
   std::size_t comp = 3;
 
   std::size_t ret = 0;
-  templates::pod_count::pod_reflection::detect_fields_count<POD>(ret);
+  templates::pod_count::pod_reflection::detect_fields_count<pod>(ret);
 
   REQUIRE(ret == comp);
 }
@@ -52,83 +55,81 @@ TEST_CASE("misc::templates::factorial", "factorial") {
   REQUIRE(ret == comp);
 }
 
-TEST_CASE("misc::sorting::bubble_sort", "bubble_sort") {
+TEST_CASE("misc::sorting", "sorting") {
   std::vector<int> comp = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-  std::vector<int> ret = {7, 4, 1, 8, 5, 2, 10, 9, 6, 3};
-  sorting::bubble_sort(ret);
+  std::vector<int> ret = comp;
+  auto rng = std::default_random_engine{std::random_device()()};
 
-  REQUIRE(ret == comp);
-}
+  SECTION("bubble_sort") {
+    std::shuffle(std::begin(ret), std::end(ret), rng);
 
-TEST_CASE("misc::sorting::coctail_sort", "coctail_sort") {
-  std::vector<int> comp = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    sorting::bubble_sort(ret);
 
-  std::vector<int> ret = {7, 4, 1, 8, 5, 2, 10, 9, 6, 3};
-  sorting::coctail_sort(ret);
+    REQUIRE(ret == comp);
+  }
 
-  REQUIRE(ret == comp);
-}
+  SECTION("coctail_sort") {
+    std::shuffle(std::begin(ret), std::end(ret), rng);
 
-TEST_CASE("misc::sorting::even_odd_sort", "even_odd_sort") {
-  std::vector<int> comp = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    sorting::coctail_sort(ret);
 
-  std::vector<int> ret = {7, 4, 1, 8, 5, 2, 10, 9, 6, 3};
-  sorting::even_odd_sort(ret);
+    REQUIRE(ret == comp);
+  }
 
-  REQUIRE(ret == comp);
-}
+  SECTION("even_odd_sort") {
+    std::shuffle(std::begin(ret), std::end(ret), rng);
 
-TEST_CASE("misc::sorting::combo_sort", "combo_sort") {
-  std::vector<int> comp = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    sorting::even_odd_sort(ret);
 
-  std::vector<int> ret = {7, 4, 1, 8, 5, 2, 10, 9, 6, 3};
-  sorting::combo_sort(ret);
+    REQUIRE(ret == comp);
+  }
 
-  REQUIRE(ret == comp);
-}
+  SECTION("combo_sort") {
+    std::shuffle(std::begin(ret), std::end(ret), rng);
 
-TEST_CASE("misc::sorting::insert_sort", "insert_sort") {
-  std::vector<int> comp = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    sorting::combo_sort(ret);
 
-  std::vector<int> ret = {7, 4, 1, 8, 5, 2, 10, 9, 6, 3};
-  sorting::insert_sort(ret);
+    REQUIRE(ret == comp);
+  }
 
-  REQUIRE(ret == comp);
-}
+  SECTION("insert_sort") {
+    std::shuffle(std::begin(ret), std::end(ret), rng);
 
-TEST_CASE("misc::sorting::selection_sort", "selection_sort") {
-  std::vector<int> comp = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    sorting::insert_sort(ret);
 
-  std::vector<int> ret = {7, 4, 1, 8, 5, 2, 10, 9, 6, 3};
-  sorting::selection_sort(ret);
+    REQUIRE(ret == comp);
+  }
 
-  REQUIRE(ret == comp);
-}
+  SECTION("selection_sort") {
+    std::shuffle(std::begin(ret), std::end(ret), rng);
 
-TEST_CASE("misc::sorting::merge_sort", "merge_sort") {
-  std::vector<int> comp = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    sorting::selection_sort(ret);
 
-  std::vector<int> ret = {7, 4, 1, 8, 5, 2, 10, 9, 6, 3};
-  sorting::merge_sort(ret);
+    REQUIRE(ret == comp);
+  }
 
-  REQUIRE(ret == comp);
-}
+  SECTION("merge_sort") {
+    std::shuffle(std::begin(ret), std::end(ret), rng);
 
-TEST_CASE("misc::sorting::shell_sort", "shell_sort") {
-  std::vector<int> comp = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    sorting::merge_sort(ret);
 
-  std::vector<int> ret = {7, 4, 1, 8, 5, 2, 10, 9, 6, 3};
-  sorting::shell_sort(ret);
+    REQUIRE(ret == comp);
+  }
 
-  REQUIRE(ret == comp);
-}
+  SECTION("shell_sort") {
+    std::shuffle(std::begin(ret), std::end(ret), rng);
 
-TEST_CASE("misc::sorting::quick_sort", "quick_sort") {
-  std::vector<int> comp = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    sorting::shell_sort(ret);
 
-  std::vector<int> ret = {7, 4, 1, 8, 5, 2, 10, 9, 6, 3};
-  sorting::quick_sort(ret);
+    REQUIRE(ret == comp);
+  }
 
-  REQUIRE(ret == comp);
+  SECTION("quick_sort") {
+    std::shuffle(std::begin(ret), std::end(ret), rng);
+
+    sorting::quick_sort(ret);
+
+    REQUIRE(ret == comp);
+  }
 }
