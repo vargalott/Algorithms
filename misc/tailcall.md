@@ -3,18 +3,16 @@
 Attempt to directly see a compiler tail call optimization on a simple fibonacci recursion using the msvc build tools.
 
 ```cpp
-int fibonacci(int n, int res, int next)
-{
+int fibonacci(int n, int res, int next) {
   if (n == 0) {
     return res;
   }
   return fibonacci(n - 1, next, res + next);
 }
 
-int main(void)
-{
-	fibonacci(10, 0, 1);
-	return 0;
+int main(void) {
+  fibonacci(10, 0, 1);
+  return 0;
 }
 ```
 
