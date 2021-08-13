@@ -1,0 +1,46 @@
+name: misc
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - 'extern/**'
+      - 'include/misc/**'
+      - 'src/misc/**'
+      - 'tests/misc**'
+      - '.github/workflows/misc.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'extern/**'
+      - 'include/misc/**'
+      - 'src/misc/**'
+      - 'tests/misc**'
+      - '.github/workflows/misc.yml'
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  build-n-test:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ macos-latest, windows-latest, ubuntu-latest ]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Init submodule(s)
+      run: git submodule init && git submodule update --init --recursive
+
+    - name: Configure CMake
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target algorithms-misc
+
+    - name: Test
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target run-algorithms-misc-tests
