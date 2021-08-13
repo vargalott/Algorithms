@@ -23,7 +23,7 @@ env:
   BUILD_TYPE: Release
 
 jobs:
-  patterns:
+  changes:
     runs-on: ubuntu-latest
 
     steps:
@@ -32,7 +32,7 @@ jobs:
         fetch-depth: 2
 
     - name: Get changed files (::patterns/)
-      id: changed-patterns
+      id: patterns
       uses: tj-actions/changed-files@v9
       with:
         files: |
@@ -40,40 +40,8 @@ jobs:
           src/patterns
           tests/patterns
 
-    - name: Init submodule(s)
-      if: |
-        steps.changed-patterns.outputs.any_changed == 'true' ||
-        github.event_name == 'workflow_dispatch'
-      run: git submodule init && git submodule update --init --recursive
-
-    - name: Configure CMake
-      if: |
-        steps.changed-patterns.outputs.any_changed == 'true' ||
-        github.event_name == 'workflow_dispatch'
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
-
-    - name: Build
-      if: |
-        steps.changed-patterns.outputs.any_changed == 'true' ||
-        github.event_name == 'workflow_dispatch'
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target algorithms-patterns
-
-    - name: Test
-      if: |
-        steps.changed-patterns.outputs.any_changed == 'true' ||
-        github.event_name == 'workflow_dispatch'
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target run-algorithms-patterns-tests
-
-  misc:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 2
-
     - name: Get changed files (::misc/)
-      id: changed-misc
+      id: misc
       uses: tj-actions/changed-files@v9
       with:
         files: |
@@ -81,26 +49,56 @@ jobs:
           src/misc
           tests/misc
 
+  build:
+    needs: changes
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
     - name: Init submodule(s)
-      if: |
-        steps.changed-misc.outputs.any_changed == 'true' ||
-        github.event_name == 'workflow_dispatch'
       run: git submodule init && git submodule update --init --recursive
 
     - name: Configure CMake
-      if: |
-        steps.changed-misc.outputs.any_changed == 'true' ||
-        github.event_name == 'workflow_dispatch'
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
-    - name: Build
+    - name: Build (::patterns/)
       if: |
-        steps.changed-misc.outputs.any_changed == 'true' ||
+        jobs.changes.steps.patterns.outputs.any_changed == 'true' ||
+        github.event_name == 'workflow_dispatch'
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target algorithms-patterns
+
+    - name: Build (::misc/)
+      if: |
+        jobs.changes.steps.misc.outputs.any_changed == 'true' ||
         github.event_name == 'workflow_dispatch'
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target algorithms-misc
 
+  patterns-tests:
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
     - name: Test
       if: |
-        steps.changed-misc.outputs.any_changed == 'true' ||
+        jobs.changes.steps.patterns.outputs.any_changed == 'true' ||
+        github.event_name == 'workflow_dispatch'
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target run-algorithms-patterns-tests
+
+  misc-tests:
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Test
+      if: |
+        jobs.changes.steps.misc.outputs.any_changed == 'true' ||
         github.event_name == 'workflow_dispatch'
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target run-algorithms-misc-tests
