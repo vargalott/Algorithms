@@ -34,11 +34,11 @@ void concrete_mediator::set_components(concrete_component1 *cc1,
 std::string concrete_mediator::notify(icomponent *component) {
   // some piece of weird logic
 
-  if (typeid(*component).name() == typeid(concrete_component1).name()) {
+  if (typeid(*component) == typeid(concrete_component1)) {
     return this->cc2->react(); // reacting on concrete_component1
-  } else if (typeid(*component).name() == typeid(concrete_component2).name()) {
+  } else if (typeid(*component) == typeid(concrete_component2)) {
     return this->cc3->react(); // reacting on concrete_component2
-  } else if (typeid(*component).name() == typeid(concrete_component3).name()) {
+  } else if (typeid(*component) == typeid(concrete_component3)) {
     return this->cc1->react(); // reacting on concrete_component3
   }
 }

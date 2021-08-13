@@ -3,6 +3,7 @@
 #define __MEDIATOR_HPP__
 
 #include <string>
+#include <typeinfo>
 
 namespace patterns::behavioral::mediator {
 
