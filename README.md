@@ -1,7 +1,7 @@
 # Algorithms
 
-[![patterns](https://github.com/andinoriel/algorithms/actions/workflows/patterns.yml/badge.svg)](https://github.com/andinoriel/algorithms/actions/workflows/patterns.yml)
-[![misc](https://github.com/andinoriel/algorithms/actions/workflows/misc.yml/badge.svg)](https://github.com/andinoriel/algorithms/actions/workflows/misc.yml)
+[![patterns](https://github.com/vargalott/algorithms/actions/workflows/patterns.yml/badge.svg)](https://github.com/vargalott/algorithms/actions/workflows/patterns.yml)
+[![misc](https://github.com/vargalott/algorithms/actions/workflows/misc.yml/badge.svg)](https://github.com/vargalott/algorithms/actions/workflows/misc.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Build
